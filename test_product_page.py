@@ -15,6 +15,7 @@ def test_guest_can_add_product_to_basket(driver, promo_offer):
     page.verify_name_of_a_book_is_similar()
     page.verify_price_of_item_is_similar()
 
+
 @pytest.mark.skip
 def test_guest_cant_see_success_message_after_adding_product_to_basket(driver):
     link = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-girl-who-played-with-non-fire_203/"
@@ -32,6 +33,7 @@ def test_guest_cant_see_success_message(driver):
     page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
     page.should_not_be_success_message()
 
+
 @pytest.mark.skip
 def test_message_disappeared_after_adding_product_to_basket(driver):
     link = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-girl-who-played-with-non-fire_203/"
@@ -40,4 +42,18 @@ def test_message_disappeared_after_adding_product_to_basket(driver):
     page.add_product_to_basket()
     page.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
     page.should_not_be_success_message()
+
+
+def test_guest_should_see_login_link_on_product_page(driver):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(driver, link)
+    page.open()
+    page.should_be_login_link()
+
+
+def test_guest_can_go_to_login_page_from_product_page(driver):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(driver, link)
+    page.open()
+    page.go_to_login_page()
 
