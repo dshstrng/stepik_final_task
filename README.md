@@ -24,6 +24,7 @@ Throughout development, I diligently adhered to industry best practices, maintai
 
     ```
     pip install -r requirements.txt
+    pip install --upgrade webdriver_manager
     ```
 
 3. Run the required tests:
