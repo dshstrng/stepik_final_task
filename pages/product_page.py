@@ -1,13 +1,12 @@
-import math
 from .base_page import BasePage
 from .locators import ProductPageLocators
-from selenium.common.exceptions import NoAlertPresentException
+
 
 
 class ProductPage(BasePage):
     def add_product_to_basket(self):
         self.driver.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
-
+        print("The item added to  basket")
 
     def verify_name_of_a_book_is_similar(self):
         book_name = self.driver.find_element(*ProductPageLocators.BOOK_NAME).text
